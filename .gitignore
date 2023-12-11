@@ -1,4 +1,6 @@
-*/*.o
+dwm/*.o
 dwm/dwm
+dmenu/*.o
 dmenu/dmenu
+st/*.o
 st/st
