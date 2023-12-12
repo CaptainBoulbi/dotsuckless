@@ -8,15 +8,15 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=12" };
 static const char dmenufont[]       = "monospace:size=12";
-static const char col_gray1[]       = "#119822";
-static const char col_gray2[]       = "#2A7221";
-static const char col_gray3[]       = "#1E441E";
-static const char col_gray4[]       = "#152614";
-static const char col_cyan[]        = "#31CB00";
+static const char col_gray1[]       = "#7FB414";
+static const char col_gray2[]       = "#7FB414";
+static const char col_gray3[]       = "#E5F9BD";
+static const char col_gray4[]       = "#525050";
+static const char col_cyan[]        = "#A0E418";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  "#E5F9BD"  },
 };
 
 /* tagging */
