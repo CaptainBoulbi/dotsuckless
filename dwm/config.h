@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
@@ -58,19 +60,23 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-
 static const Key keys[] = {
     /* custom */
-	//{ 0,   XF86XK_PowerOff,    spawn,  SHCMD("power") },
-	{ MODKEY|ShiftMask, XK_p,    spawn,  SHCMD("power") },
-	{ MODKEY,           XK_l,   spawn,  SHCMD("lockscreen") },
+	{ 0,    XF86XK_PowerOff,            spawn,  SHCMD("power") },
+    { 0,    XF86XK_AudioRaiseVolume,    spawn,  SHCMD("/home/cptbb/dev/script/volume add") },
+	{ 0,    XF86XK_AudioLowerVolume,    spawn,  SHCMD("/home/cptbb/dev/script/volume min") },
+    { 0,    XF86XK_AudioMute,           spawn,  SHCMD("/home/cptbb/dev/script/volume set 0") },
+    { 0,    XF86XK_AudioPlay,           spawn,  SHCMD("/home/cptbb/dev/script/volume set 100") },
+    { 0,    XF86XK_MonBrightnessUp,     spawn,  SHCMD("luminosity add") },
+    { 0,    XF86XK_MonBrightnessDown,   spawn,  SHCMD("luminosity min") },
+    { MODKEY,   XK_l,                   spawn,  SHCMD("lockscreen") },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,   			XK_s,	   spawn,          {.v = termcmd } },
