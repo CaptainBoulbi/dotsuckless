@@ -67,6 +67,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+#define PrintScreenDWM 0x0000ff61
+
 static const Key keys[] = {
     /* custom */
 	{ 0,    XF86XK_PowerOff,            spawn,  SHCMD("power") },
@@ -76,7 +78,9 @@ static const Key keys[] = {
     { 0,    XF86XK_AudioPlay,           spawn,  SHCMD("/home/cptbb/dev/script/volume set 100") },
     { 0,    XF86XK_MonBrightnessUp,     spawn,  SHCMD("luminosity add") },
     { 0,    XF86XK_MonBrightnessDown,   spawn,  SHCMD("luminosity min") },
-    { MODKEY,   XK_l,                   spawn,  SHCMD("lockscreen") },
+    { 0,    PrintScreenDWM,             spawn,  SHCMD("screenshot") },
+    { ShiftMask,    PrintScreenDWM,     spawn,  SHCMD("screenrecorder") },
+    { MODKEY|ShiftMask,   XK_l,                   spawn,  SHCMD("lockscreen") },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,   			XK_s,	   spawn,          {.v = termcmd } },
