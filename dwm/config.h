@@ -31,7 +31,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	// { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -79,8 +79,10 @@ static const Key keys[] = {
     { 0,    XF86XK_MonBrightnessUp,     spawn,  SHCMD("luminosity add") },
     { 0,    XF86XK_MonBrightnessDown,   spawn,  SHCMD("luminosity min") },
     { 0,    PrintScreenDWM,             spawn,  SHCMD("screenshot") },
-    { ShiftMask,    PrintScreenDWM,     spawn,  SHCMD("screenrecorder") },
-    { MODKEY|ShiftMask,   XK_l,                   spawn,  SHCMD("lockscreen") },
+    { ShiftMask,        PrintScreenDWM, spawn,  SHCMD("screenrecorder") },
+    { MODKEY|ShiftMask, XK_l,           spawn,  SHCMD("lockscreen") },
+    { MODKEY,           XK_w,           spawn,  SHCMD("randwallpaper") },
+    { MODKEY|ShiftMask, XK_w,           spawn,  SHCMD("wallpaper") },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,   			XK_s,	   spawn,          {.v = termcmd } },
