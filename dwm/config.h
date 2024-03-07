@@ -92,6 +92,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *firefox[]  = { "firefox", NULL };
+static const char *cacalendar[]  = { "cacalendar", NULL };
+static const char *pcmanfm[]  = { "pcmanfm", NULL };
 
 #define PrintScreenDWM 0x0000ff61
 
@@ -109,6 +112,9 @@ static const Key keys[] = {
     { MODKEY|ShiftMask, XK_l,           spawn,  SHCMD("lockscreen") },
     { MODKEY,           XK_w,           spawn,  SHCMD("randwallpaper") },
     { MODKEY|ShiftMask, XK_w,           spawn,  SHCMD("wallpaper") },
+    { MODKEY|Mod1Mask,  XK_f,           spawn,  {.v = firefox} },
+    { MODKEY|Mod1Mask,  XK_c,           spawn,  {.v = cacalendar} },
+    { MODKEY|Mod1Mask,  XK_p,           spawn,  {.v = pcmanfm} },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,   			XK_s,	   spawn,          {.v = termcmd } },
