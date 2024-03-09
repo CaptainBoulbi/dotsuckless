@@ -95,6 +95,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *firefox[]  = { "firefox", NULL };
 static const char *cacalendar[]  = { "cacalendar", NULL };
 static const char *pcmanfm[]  = { "pcmanfm", NULL };
+static const char *thunderbird[]  = { "thunderbird", NULL };
 
 #define PrintScreenDWM 0x0000ff61
 
@@ -115,6 +116,7 @@ static const Key keys[] = {
     { MODKEY|Mod1Mask,  XK_f,           spawn,  {.v = firefox} },
     { MODKEY|Mod1Mask,  XK_c,           spawn,  {.v = cacalendar} },
     { MODKEY|Mod1Mask,  XK_p,           spawn,  {.v = pcmanfm} },
+    { MODKEY|Mod1Mask,  XK_t,           spawn,  {.v = thunderbird} },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,   			XK_s,	   spawn,          {.v = termcmd } },
